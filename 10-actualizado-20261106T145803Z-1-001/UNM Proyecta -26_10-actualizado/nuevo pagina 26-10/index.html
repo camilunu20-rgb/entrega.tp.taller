@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   UNM Proyecta
+  </title>
+  <link href="estilos.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <section class="acceso" id="acceso">
+   <div class="login tarjeta">
+    <div class="marca">
+    
+     <div>
+      <strong>
+       UNM
+       <em>
+        proyecta
+       </em>
+      </strong>
+      <small>
+       Comunidad de proyectos universitarios
+      </small>
+     </div>
+    </div>
+    <p class="login-subtitle">Plataforma de proyectos universitarios</p>
+    <h1>Iniciar sesión</h1>
+    <p class="login-help">Ingresá con tus datos para acceder a UNM Proyecta.</p>
+    <form id="login-form">
+     <label for="login-email">Correo electrónico</label>
+     <input type="email" id="login-email" placeholder="tuusuario@unm.edu.ar" autocomplete="username" required>
+     <label for="login-password">Contraseña</label>
+     <input type="password" id="login-password" placeholder="Ingresá tu contraseña" autocomplete="current-password" required>
+     <button type="submit" class="primario">Iniciar sesión como estudiante</button>
+    </form>
+    <button type="button" id="btn-login-profesor" class="secundario">Iniciar sesión como profesor</button>
+    <div class="login-divider"><span> o </span></div>
+    <button type="button" id="btn-login-invitado" class="secundario">Ingresar como invitado</button>
+   </div>
+   <div class="universidad tarjeta">
+    <h2>
+     Universidad Nacional de Moreno
+    </h2>
+    <p>
+     Av. Bartolomé Mitre 1891, Moreno, Buenos Aires
+    </p>
+    <iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Universidad%20Nacional%20de%20Moreno%2C%20Av.%20Bartolom%C3%A9%20Mitre%201891%2C%20Moreno&amp;output=embed" title="Mapa de la Universidad Nacional de Moreno">
+    </iframe>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Universidad+Nacional+de+Moreno" rel="noopener" target="_blank">
+     Abrir mapa en otra pestaña ↗
+    </a>
+   </div>
+  </section>
+  <div class="app oculto" id="aplicacion">
+   <header class="cabecera">
+    <div class="marca">
+    
+     </span>
+     <strong>
+      UNM
+      <em>
+       proyecta
+      </em>
+     </strong>
+    </div>
+    <label class="busqueda">
+     <span>
+      ⌕
+     </span>
+     <input id="buscar" placeholder="Buscar por título o etiqueta..." type="search"/>
+     <button type="button" id="btn-filtro-panel" class="icono boton-filtros-integrado" title="Más opciones" aria-label="Más opciones de búsqueda">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 5h18v2H3zm3 6h12v2H6zm4 6h4v2h-4z"/></svg>
+     </button>
+    </label>
+    <div class="cabecera-acciones">
+     <span id="rol">
+     </span>
+     <button aria-label="Notificaciones" class="icono" id="campana" title="Notificaciones">
+      🔔
+      <b class="contador oculto" id="contador">
+       0
+      </b>
+     </button>
+     <button class="secundario" id="salir">
+      Cerrar sesión
+     </button>
+    </div>
+   </header>
+   <nav class="categorias" id="categorias">
+   </nav>
+   <div class="cuerpo">
+    <aside class="lateral">
+     <button class="activo" data-vista="crear">
+      ＋ Crear
+     </button>
+     <button data-vista="explorar">
+      ◎ Explorar
+     </button>
+     <button data-vista="mensajes">
+      ▤ Mensajes
+     </button>
+     <button data-vista="ajustes">
+      ⚙ Configuración
+     </button>
+     <button data-vista="usuario">
+      ◉ Mi cuenta
+     </button>
+     <button data-vista="equipos">
+      ♧ Equipos
+     </button>
+    </aside>
+    <main class="contenido">
+     <section class="vista activa" id="crear">
+      <div class="seccion-titulo">
+       <div>
+        <h1>
+         Mi espacio de trabajo
+        </h1>
+        <p>
+         Organizá tus carpetas y publicá tus proyectos.
+        </p>
+       </div>
+       <div class="acciones">
+        <button class="secundario oculto" id="volver-carpeta">
+         ← Volver
+        </button>
+        <button class="secundario oculto" id="adjuntar-archivo">
+         📎 Adjuntar archivos
+        </button>
+        <input accept="image/*,video/*,audio/*,.pdf,.txt" hidden="" id="archivo-carpeta" multiple="" type="file"/>
+        <button class="secundario" id="nueva-carpeta">
+         + Nueva carpeta
+        </button>
+        <button class="primario" id="publicar">
+         + Publicar portafolio
+        </button>
+       </div>
+      </div>
+      <div class="ruta-carpetas" id="ruta-carpetas">
+      </div>
+      <div class="grilla" id="carpetas">
+      </div>
+     </section>
+     <section class="vista" id="explorar">
+      <div class="seccion-titulo">
+       <div>
+        <h1>
+         Explorar proyectos
+        </h1>
+        <p id="filtro-activo">
+         Descubrí trabajos de la comunidad.
+        </p>
+       </div>
+      </div>
+      <div class="grilla" id="portafolios">
+      </div>
+     </section>
+     <section class="vista" id="mensajes">
+      <div class="seccion-titulo">
+       <div>
+        <h1>
+         Mensajes
+        </h1>
+        <p>
+         Conversaciones con otros integrantes.
+        </p>
+       </div>
+      </div>
+      <div class="mensajeria tarjeta">
+       <div class="conversaciones" id="conversaciones">
+       </div>
+       <div class="chat">
+        <h3 id="chat-titulo">
+         Seleccioná una conversación
+        </h3>
+        <div class="historial" id="chat-historial">
+        </div>
+        <form class="chat-form" id="chat-form">
+         <input id="chat-texto" placeholder="Escribí un mensaje..." required=""/>
+         <button class="primario">
+          Enviar
+         </button>
+        </form>
+       </div>
+      </div>
+     </section>
+     <section class="vista" id="ajustes">
+      <h1>
+       Configuración
+      </h1>
+      <div class="tarjeta panel">
+       <h2>
+        Preferencias
+       </h2>
+       <label class="fila">
+        <span>
+         Notificaciones de proyectos de mis intereses
+        </span>
+        <input checked="" id="permitir-notis" type="checkbox"/>
+       </label>
+       <label>
+        Intereses (separados por comas)
+        <input id="intereses-ajustes" placeholder="3D, Animación, Sonido"/>
+       </label>
+       <button class="primario" id="guardar-ajustes">
+        Guardar configuración
+       </button>
+      </div>
+     </section>
+     <section class="vista" id="usuario">
+      <h1>
+       Mi cuenta
+      </h1>
+      <div class="tarjeta panel">
+       <label>
+        Nombre público
+        <input id="perfil-nombre"/>
+       </label>
+       <label>
+        Presentación
+        <textarea id="perfil-bio" placeholder="Contá algo sobre vos" rows="4"></textarea>
+       </label>
+       <label>
+        Intereses
+        <input id="perfil-intereses" placeholder="3D, Animación..."/>
+       </label>
+       <label>
+        Disponibilidad
+        <select id="perfil-disponibilidad">
+         <option>
+          Disponible para colaborar
+         </option>
+         <option>
+          Ocupado/a
+         </option>
+         <option>
+          No disponible
+         </option>
+        </select>
+       </label>
+       <button class="primario" id="guardar-perfil">
+        Guardar perfil
+       </button>
+      </div>
+     </section>
+     <section class="vista" id="equipos">
+      <div class="seccion-titulo">
+       <h1>
+        Mis equipos
+       </h1>
+       <button class="primario" id="nuevo-equipo">
+        + Crear equipo
+       </button>
+      </div>
+      <div class="grilla" id="equipos-lista">
+      </div>
+     </section>
+    </main>
+   </div>
+   <button aria-label="Ayuda" class="ayuda" id="ayuda">
+    ?
+   </button>
+  </div>
+  <dialog id="dialogo">
+   <form class="modal" method="dialog">
+    <div class="seccion-titulo">
+     <h2 id="dialogo-titulo">
+     </h2>
+     <button aria-label="Cerrar" class="icono" value="cancel">
+      ✕
+     </button>
+    </div>
+    <div id="dialogo-cuerpo">
+    </div>
+    <div class="acciones" id="dialogo-acciones">
+    </div>
+   </form>
+  </dialog>
+  
+  <script defer src="app.js"></script>
+  <script defer src="filtros.js"></script>
+ </body>
+</html>
+
+
+
+
+
+
